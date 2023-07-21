@@ -1,8 +1,8 @@
 function Welcome({ nome, age }) {
   return (
     <p>
-      Welcom {(nome = "Fabiola")}
-      Your age is {(age = 31)}
+      Welcom {nome}
+      Your age is {age}
     </p>
   );
 }
