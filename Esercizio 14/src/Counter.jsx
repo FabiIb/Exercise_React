@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DisplayCounter from "./DisplayCounter";
 function Counter({ start, range, incrase }) {
   const [count, setCount] = useState(start);
   useState(() => {
@@ -7,6 +8,6 @@ function Counter({ start, range, incrase }) {
     }, range);
     return () => clearInterval(range);
   }, []);
-  return <h1>{count}</h1>;
+  return <DisplayCounter count={count}/>
 }
 export default Counter;
