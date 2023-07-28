@@ -1,10 +1,6 @@
-
-
+import UncotrolledLogin from "./UncotrolledLogin";
 function App() {
- 
-
-  return (
-  )
+  return <UncotrolledLogin />;
 }
 
-export default App
+export default App;
