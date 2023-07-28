@@ -1,6 +1,8 @@
 import Login from "./Login";
 function App() {
-  return <Login />;
+  return (
+  <Login />
+  );
 }
 
 export default App;
