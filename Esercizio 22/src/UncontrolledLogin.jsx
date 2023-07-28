@@ -1,18 +1,18 @@
-function UncotrolledLogin() {
+function UncontrolledLogin() {
   const handleLog = (e) => {
     e.preventDefault();
     const username = e.target.elements.username.value;
     const password = e.target.elements.password.value;
-console.log({
-    username:username,
-    password:password
-})
+    console.log({
+      username: username,
+      password: password,
+    });
   };
 
   return (
     <form onSubmit={handleLog}>
       <label>Username:</label>
-      <input name="username" />
+      <input name="username" defaultValue="Fabiola" />
 
       <label>Password:</label>
       <input name="password" type="password" placeholder="Password" />
@@ -22,4 +22,4 @@ console.log({
   );
 }
 
-export default UncotrolledLogin;
+export default UncontrolledLogin;
