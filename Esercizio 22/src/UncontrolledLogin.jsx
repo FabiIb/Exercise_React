@@ -12,7 +12,7 @@ function UncontrolledLogin() {
   return (
     <form onSubmit={handleLog}>
       <label>Username:</label>
-      <input name="username" defaultValue="Fabiola" />
+      <input name="username" defaultValue="Fabiola" autoFocus />
 
       <label>Password:</label>
       <input name="password" type="password" placeholder="Password" />
