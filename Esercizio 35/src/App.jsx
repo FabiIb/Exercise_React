@@ -1,11 +1,6 @@
-
-
+import UserGitHubList from "./UserGitHubList"
 function App() {
-  
-
-  return (
-   
-  )
+  return <UserGitHubList />
 }
 
 export default App
