@@ -1,10 +1,17 @@
 import userGitHub from "./utilis"
+import { useEffect } from "react"
 function UserGit({ username }) {
-    const data = userGitHub(username)
-    console.log(data)
+    const { data, load, error, fetchData } = userGitHub(username)
+    console.log(username)
+    useEffect(() => {
+        fetchData(username)
+    }, [username])
     return (
-
-        <h1>{data.name}</h1>
+        <div>
+            {data && <h1>Username: {data.name}</h1>}
+            {load && <h1>Loading...</h1>}
+            {error && <h1>There is been an error</h1>}
+        </div>
     )
 }
 export default UserGit

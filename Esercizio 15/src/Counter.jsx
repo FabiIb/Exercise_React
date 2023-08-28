@@ -6,7 +6,7 @@ function Counter({ start, range, incrase }) {
     useEffect(() => {
         clearInterval(count)
     }, [count])
-    useState(() => {
+    useEffect(() => {
         const intervall = setInterval(() => {
             setCount((i) => i + incrase)
         }, range);
