@@ -1,18 +1,15 @@
-import Counter from "./Counter"
-
-import {Route} from "react-router"
-import {Routes} from "react-router"
+import { Route, Routes } from 'react-router-dom';
+import Counter from './Counter'; // Assuming the Counter component is imported correctly
 
 function App() {
-
-
   return (
     <>
       <Routes>
-        <Route path="/" element={<Counter />} />
+        <Route path="/counter" element={<Counter />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+

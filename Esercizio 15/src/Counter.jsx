@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react"
 import DisplayCounter from "./DisplayCounter";
 
-function Counter({ start, range, incrase }) {
+function Counter({ start, range, increase }) {
     const [count, setCount] = useState(start);
     useEffect(() => {
-        clearInterval(count)
-    }, [count])
-    useEffect(() => {
-        const intervall = setInterval(() => {
-            setCount((i) => i + incrase)
+        const interval = setInterval(() => {
+            setCount((i) => i + increase);
         }, range);
+
         return () => {
-            clearInterval(intervall)
-        }
-    }, [])
+            clearInterval(interval);
+        };
+    }, [range, increase]);
+  
     return (
         <DisplayCounter count={count} />
     )

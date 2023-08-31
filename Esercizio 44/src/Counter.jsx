@@ -1,6 +1,6 @@
 import UseCounter from "./UseCounter"
 function Counter() {
-    const {counter,onIncrement,onDecrement,onReset} =UseCounter()
+    const {counter,onIncrement,onDecrement,onReset} = UseCounter()
  
      return (
          <div>
@@ -14,5 +14,3 @@ function Counter() {
      )
  }
  export default Counter
-
- 
