@@ -1,5 +1,5 @@
 function Product() {
-    return(
+    return (
         <p>Product</p>
     )
 }
