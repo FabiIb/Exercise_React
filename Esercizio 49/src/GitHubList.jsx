@@ -16,7 +16,7 @@ function GitHubUserList() {
 
   return (
     <div>
-      <h2>User List</h2>
+      <h2>List</h2>
       <input type="text" value={inputValue} onChange={handleInputChange} />
       <button onClick={handleAddUsername}>Add</button>
       <ul>
