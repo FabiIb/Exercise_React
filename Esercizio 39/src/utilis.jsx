@@ -13,11 +13,12 @@ export const userGitHub = (username) => {
             console.log(json)
             if (json.message === 'Not Found') {
                 setError(json.message)
+                setData(null)
             } else {
                 setData(json)
             }
         } catch (error) {
-            setError(error)
+            setError("Error")
             setData(null)
             console.log(error)
         } finally {
