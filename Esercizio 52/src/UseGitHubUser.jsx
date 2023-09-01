@@ -1,20 +1,19 @@
-import useSwr from 'swr'
-function UseGitHubUser() {
-    const dataFetch = async (url) => {
-        const response = await fetch(url)
-        const data = await response.json()
-        return data
-    }
+import useSWR from 'swr'
+function UseGitHubUser(username) {
+    const fetcher = url => fetch(url).then(response => response.json())
+    const {data, error, mutate} = useSWR(username ?` https://api.github.com/users/${username}`: null, fetcher)
 
-    const { dataF, error, mutate } = useSwr(`https://api.github.com/users`, dataFetch)
-    function refreshData() {
-        mutate()
-    }
+   function handleRefreshData(){
+     mutate()
+   }
+
+
+   
     return {
-        users: dataF,
+        users: data,
         error,
-        isLoading: !dataF && !error,
-        refresh: refreshData
+        isLoading: !data && !error,
+        refresh: handleRefreshData
     }
 }
 
