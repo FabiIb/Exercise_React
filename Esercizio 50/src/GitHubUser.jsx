@@ -1,22 +1,23 @@
-import UseGitHubUser from "./UseGitHubUser";
+import useSWR from "swr";
 
-function GitHubUser() {
-    const { users, error, isLoading } = UseGitHubUser()
+function GitHubUser({ username }) {
+  async function DataFetch() {
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(newError(error));
+    }
+  }
 
-    return (
+  const { data } = useSWR(username ? `https://api.github.com/users/${username}` : null, DataFetch);
 
-        <>
-            {isLoading ? <h3>Loading...</h3> :
-                error ? <h3>Error 404</h3> :
-                    <ul>
-                        {users.map((a, b) => (
-                            <li key={b}>{a.login}</li>
-                        ))}
-                    </ul>}
-        </>
-
-    )
-
+  return (
+    <>
+      {!data ? <p>Loading...</p> : <ul>{data.id && <li>{data.id}</li>}</ul>}
+    </>
+  );
 }
 
-export default GitHubUser
+export default GitHubUser;
