@@ -1,42 +1,37 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useRef } from "react";
 
 function CarDetails({ initialData }) {
-    const { initValueModel, initValueYear, initValueColor } = initialData
-    const [model, setModel] = useState(initValueModel)
-    const [year, setYear] = useState(initValueYear)
-    const [color, setColor] = useState(initValueColor)
+    const modelRef = useRef(null);
+    const yearRef = useRef(null);
+    const colorRef = useRef(null);
 
-
-    const handleChangeModel = ((e) => {
-        const models = e.target.value
-        setModel(models)
-    })
-    const changeYear = ((e) => {
-        const years = e.target.value
-        setYear(years)
-    })
-    const changeColor = ((e) => {
-        const colors = e.target.value
-        setColor(colors)
-    })
     useEffect(() => {
-        setModel(initialData.model || '');
-        setYear(initialData.year || '');
-        setColor(initialData.color || '');
+        modelRef.current.value = initialData.initValueModel || "";
+        yearRef.current.value = initialData.initValueYear || "";
+        colorRef.current.value = initialData.initValueColor || "";
     }, [initialData]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const modelValue = modelRef.current.value;
+        const yearValue = yearRef.current.value;
+        const colorValue = colorRef.current.value;
+    };
+
     return (
-        <form>
-            <label > Car Model</label>
-            <input type="text" onChange={handleChangeModel} value={model} />
+        <form onSubmit={handleSubmit}>
+            <label>Car Model</label>
+            <input type="text" ref={modelRef} />
 
-            <label > Year and month of registration:</label>
-            <input type="month" onChange={changeYear} value={year} />
+            <label>Year and month of registration:</label>
+            <input type="month" ref={yearRef} />
 
-            <label> Color:</label>
-            <input type="color" onChange={changeColor} value={color} />
+            <label>Color:</label>
+            <input type="color" ref={colorRef} />
 
             <button type="submit">Send</button>
         </form>
-    )
+    );
 }
-export default CarDetails
+
+export default CarDetails;
